@@ -2,17 +2,17 @@ from humblebundle_downloader.download_library import DownloadLibrary
 
 
 ###
-# _should_download_file_type
+# _should_download_file_by_ext
 ###
 def test_include_logic_has_values():
     dl = DownloadLibrary(
         "fake_library_path",
         ext_include=["pdf", "EPub"],
     )
-    assert dl._should_download_file_type("pdf") is True
-    assert dl._should_download_file_type("df") is False
-    assert dl._should_download_file_type("ePub") is True
-    assert dl._should_download_file_type("mobi") is False
+    assert dl._should_download_file_by_ext("pdf") is True
+    assert dl._should_download_file_by_ext("df") is False
+    assert dl._should_download_file_by_ext("ePub") is True
+    assert dl._should_download_file_by_ext("mobi") is False
 
 
 def test_include_logic_empty():
@@ -20,10 +20,10 @@ def test_include_logic_empty():
         "fake_library_path",
         ext_include=[],
     )
-    assert dl._should_download_file_type("pdf") is True
-    assert dl._should_download_file_type("df") is True
-    assert dl._should_download_file_type("EPub") is True
-    assert dl._should_download_file_type("mobi") is True
+    assert dl._should_download_file_by_ext("pdf") is True
+    assert dl._should_download_file_by_ext("df") is True
+    assert dl._should_download_file_by_ext("EPub") is True
+    assert dl._should_download_file_by_ext("mobi") is True
 
 
 def test_exclude_logic_has_values():
@@ -31,10 +31,10 @@ def test_exclude_logic_has_values():
         "fake_library_path",
         ext_exclude=["pdf", "EPub"],
     )
-    assert dl._should_download_file_type("pdf") is False
-    assert dl._should_download_file_type("df") is True
-    assert dl._should_download_file_type("ePub") is False
-    assert dl._should_download_file_type("mobi") is True
+    assert dl._should_download_file_by_ext("pdf") is False
+    assert dl._should_download_file_by_ext("df") is True
+    assert dl._should_download_file_by_ext("ePub") is False
+    assert dl._should_download_file_by_ext("mobi") is True
 
 
 def test_exclude_logic_empty():
@@ -42,10 +42,10 @@ def test_exclude_logic_empty():
         "fake_library_path",
         ext_exclude=[],
     )
-    assert dl._should_download_file_type("pdf") is True
-    assert dl._should_download_file_type("df") is True
-    assert dl._should_download_file_type("EPub") is True
-    assert dl._should_download_file_type("mobi") is True
+    assert dl._should_download_file_by_ext("pdf") is True
+    assert dl._should_download_file_by_ext("df") is True
+    assert dl._should_download_file_by_ext("EPub") is True
+    assert dl._should_download_file_by_ext("mobi") is True
 
 
 ###

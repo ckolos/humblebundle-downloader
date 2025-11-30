@@ -1,7 +1,7 @@
 # Humble Bundle Downloader
 
-[![PyPI](https://img.shields.io/pypi/v/humblebundle-downloader.svg)](https://pypi.python.org/pypi/humblebundle-downloader)
-[![PyPI](https://img.shields.io/pypi/l/humblebundle-downloader.svg)](https://pypi.python.org/pypi/humblebundle-downloader)
+> This is a maintained fork of the [original project](https://github.com/xtream1101/humblebundle-downloader) 
+> by Eddy Hintze, which has been archived. This fork adds Python 3.13 support and continues maintenance.
 
 **Download all of your content from your Humble Bundle Library!**  
 
@@ -22,17 +22,10 @@ After that it will only download the content that has been updated or is missing
 
 ## Install
 
-
-### Using PIP
-
-`pip install humblebundle-downloader`
-
-
-### Using docker
-
-Remember to mount your download directory in the container using dockers `-v` argument.
-`docker run ghcr.io/xtream1101/humblebundle-downloader -h`
-
+Checkout
+Create virtual-env
+Activate virtual-env
+pip install -e .
 
 ## Instructions
 
