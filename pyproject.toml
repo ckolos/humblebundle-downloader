@@ -1,26 +1,53 @@
-[tool.poetry]
+[project]
 name = "humblebundle-downloader"
-version = "0.4.3"
-description = "Download your Humble Bundle library"
-authors = ["Eddy Hintze <eddy@gitx.codes>"]
-license = "MIT"
+version = "0.4.4"
+description = "Download your Humble Bundle library (Forked Version)"
+authors = [{name = "Eddy Hintze", email = "eddy@gitx.codes"},
+{name = "ckolos", email = "ckolos@gmail.com"},]
+license = {text = "MIT"}
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.3",
+    "parsel>=1.9.1",
+]
 
-[tool.poetry.urls]
-homepage = "https://github.com/xtream1101/humblebundle-downloader"
-repository = "https://github.com/xtream1101/humblebundle-downloader"
+[project.urls]
+homepage = "https://github.com/ckolos/humblebundle-downloader"
+repository = "https://github.com/ckolos/humblebundle-downloader"
 
-[tool.poetry.scripts]
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3.2",
+]
+
+[project.scripts]
+humblebundle_downloader = "humblebundle_downloader.cli:cli"
 hbd = "humblebundle_downloader.cli:cli"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-requests = "^2.32.3"
-parsel = "^1.9.1"
-
-[tool.poetry.group.test.dependencies]
-pytest = "^8.3.2"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["humblebundle_downloader"]
+
+[tool.ruff]
+line-length = 80
+exclude = [
+    ".tox",
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".cache",
+    ".eggs",
+    "examples",
+    "lib",
+    "lib64",
+    "include",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "N"]
